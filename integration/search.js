@@ -17,4 +17,14 @@ describe('Search elements', ()=>{
             cy.get(searchResult.alert).should('contain','No results were found for your search');
         })
     })
+
+    it('search for element with special code', ()=>{
+        cy.readFile('tiendaDeRopa/support/text/search').then((text) => {
+            cy.search('text')
+        })
+        
+        cy.fixture('searchResults'). then((searchResult)=>{
+            cy.get(searchResult.alert).should('contain','No results were found for your search');
+        })
+    })
 })
